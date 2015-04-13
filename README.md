@@ -17,4 +17,4 @@ https://fedorahosted.org/liberation-fonts/<br />
 # TODO
 * Implement a better mobile support
 * Implement all options (like enable/disable bloom, etc)
-* Improve performances and cross browser compatibility
+* Improve performances and old browser compatibility
