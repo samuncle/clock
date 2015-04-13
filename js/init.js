@@ -55,8 +55,12 @@ $(document).ready(function(){
     
     g_rand.init();
     
+    // Animated text on the background
+    $("#clockbackground-randomtext").text(g_rand.getRndStr(g_config.nbLine));
     setInterval(function(){
-        $("#clockbackground-randomtext").text(g_rand.getRndStr(g_config.nbLine));
+        if(g_config.is_fancyAnimation){
+            $("#clockbackground-randomtext").text(g_rand.getRndStr(g_config.nbLine));
+        }
     },1000);
     
     //$("#audioDemo").trigger('play');
@@ -70,14 +74,16 @@ $(document).ready(function(){
     
     // Parallax effect
     $("body").mousemove(function( event ) {
-        var amount = 50.0;
-        var x_offset = (event.clientX / amount) - $(window).width()/(amount*2);
-        var y_offset = (event.clientY / amount) - $(window).height()/(amount*2);
-        $("#clockbackground-pic").css("left", x_offset);
-        $("#clockbackground-pic").css("top", y_offset);
-        
-        $("#clockmain-content").css("left", -x_offset/2);
-        $("#clockmain-content").css("top", -y_offset/2);
+        if(g_config.is_fancyAnimation){
+            var amount = 50.0;
+            var x_offset = (event.clientX / amount) - $(window).width()/(amount*2);
+            var y_offset = (event.clientY / amount) - $(window).height()/(amount*2);
+            $("#clockbackground-pic").css("left", x_offset);
+            $("#clockbackground-pic").css("top", y_offset);
+            
+            $("#clockmain-content").css("left", -x_offset/2);
+            $("#clockmain-content").css("top", -y_offset/2);
+        }
     });
 
     // SVG management
@@ -107,24 +113,26 @@ $(document).ready(function(){
             time_circle("#barcode-separator-f",s+h);
             time_circle("#barcode-separator-g",s+h+1);
             
-            time_rotate("#barcode-separator-g", s*6); 
-            time_rotate("#barcode-separator-f", -s+m*2);
-            time_rotate("#barcode-separator-d", s*3);
-            time_rotate("#barcode-separator-c", -s*4);
-            time_rotate("#barcode-separator-b", s*5);
-            
-            time_circle("#barcode-separator-a-glow",m+h);
-            time_circle("#barcode-separator-b-glow",m+h+1);
-            time_circle("#barcode-separator-c-glow",m);
-            time_circle("#barcode-separator-d-glow",m+1);
-            time_circle("#barcode-separator-f-glow",s+h);
-            time_circle("#barcode-separator-g-glow",s+h+1);
-            
-            time_rotate("#barcode-separator-g-glow", s*6);
-            time_rotate("#barcode-separator-f-glow", -s+m*2);
-            time_rotate("#barcode-separator-d-glow", s*3);
-            time_rotate("#barcode-separator-c-glow", -s*4);
-            time_rotate("#barcode-separator-b-glow", s*5);
+            if(g_config.is_fancyAnimation){
+                time_rotate("#barcode-separator-g", s*6); 
+                time_rotate("#barcode-separator-f", -s+m*2);
+                time_rotate("#barcode-separator-d", s*3);
+                time_rotate("#barcode-separator-c", -s*4);
+                time_rotate("#barcode-separator-b", s*5);
+                
+                time_circle("#barcode-separator-a-glow",m+h);
+                time_circle("#barcode-separator-b-glow",m+h+1);
+                time_circle("#barcode-separator-c-glow",m);
+                time_circle("#barcode-separator-d-glow",m+1);
+                time_circle("#barcode-separator-f-glow",s+h);
+                time_circle("#barcode-separator-g-glow",s+h+1);
+                
+                time_rotate("#barcode-separator-g-glow", s*6);
+                time_rotate("#barcode-separator-f-glow", -s+m*2);
+                time_rotate("#barcode-separator-d-glow", s*3);
+                time_rotate("#barcode-separator-c-glow", -s*4);
+                time_rotate("#barcode-separator-b-glow", s*5);
+            }
 
 
         },1000);

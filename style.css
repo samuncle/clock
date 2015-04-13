@@ -3,6 +3,11 @@
     src: url('assets/modern-terminus.ttf'); /*URL to font*/
 }
 
+@font-face {
+    font-family: 'GRUPO3    '; /*a name to be used later*/
+    src: url('assets/GRUPO3.ttf'); /*URL to font*/
+}
+
 div {
     cursor: default;
 }
@@ -35,13 +40,17 @@ tr{
     height: 28px;
 }
 
+a{
+    color: #729fcf;
+}
+
 #clockmain-copyright-section {
     text-align: center;
 }
 
-#clockmain-copyright-button{
+/*#clockmain-copyright-button{
     background-color: #f00;
-}
+}*/
 
 #clockbackground-pic {
     content : "";
@@ -233,6 +242,14 @@ tr{
 
 .clockmenu-section-divider{
     height: 20px;
+}
+
+.clockmenu-about{
+    text-align: center;
+    background-color: #222;
+}
+.clockmenu-about:hover{
+    background-color: #222;
 }
 
 .clockmenu-section{

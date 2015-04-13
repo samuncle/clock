@@ -15,6 +15,8 @@ g_config = {
     is_backgroundTextOn         : false,
     is_backgroundTextAnimOn     : false,
     
+    is_fancyAnimation           : true,
+    
     // Options (experimental/WIP)
     is_soundOn                  : false,
     is_parallaxOn               : false
@@ -64,6 +66,12 @@ g_menu = {
     
     // -- Initialisation -- (will be executed at beginning)
     init : function(){
+        // Check if mobile. If yes, disable some fancy stuff + reduce size of the menu
+        if($.browser.mobile){
+            g_config.is_fancyAnimation = false;
+            $("#clockmenu-container").width($("#clockmenu-container").width() - 100);
+            $("#clockmenu-title").width($("#clockmenu-title").width() - 100);
+        }
         this.hide();
         // Enable menu display
         $("#clockmenu-access-button").click(function(){
@@ -87,15 +95,17 @@ g_menu = {
         
         // Check which yesno btn should be active
         $(".ui-yesno-btn").each(function(){
-            if(g_menu.getYesNobtn(this)){
+            if(g_config.is_fancyAnimation){
                 g_menu.setYesNobtn(this, true);
             } else {
                 g_menu.setYesNobtn(this, false);
             }
         });
         
+        // Button to enable/disable animations.
         $("#menu-backgroundAnimation-btn").click(function(){
-           g_menu.setYesNobtnToggle($("#" + $(this).data("ref"))); 
+           g_menu.setYesNobtnToggle($("#" + $(this).data("ref")));
+           g_config.is_fancyAnimation = g_menu.getYesNobtn($("#menu-backgroundAnimation-ui"));
         });
         
         
@@ -103,9 +113,9 @@ g_menu = {
         $("#clockmain-copyright-information").hide();
         
         // FIXME Doesn't work when the vignette is on top
-        $("#clockmain-copyright-button").click(function(){
+        /*$("#clockmain-copyright-button").click(function(){
             $("#clockmain-copyright-information").show();
-        });
+        });*/
     },
     
     // -- Hide the menu --
@@ -159,7 +169,6 @@ g_menu = {
     },
     
     setYesNobtnToggle : function(btn){
-        console.log($(btn).data("value"));
         this.setYesNobtn(btn, !this.getYesNobtn(btn));
     }
 };

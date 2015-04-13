@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title>Clock !</title>
         <link rel="stylesheet" href="style.css">
         <!-- External Library-->
@@ -11,6 +12,7 @@
         <script src="js/snap.js"></script>
         <script src="js/JsBarcode.js"></script>
         <script src="js/CODE128.js"></script>
+        <script src="js/jmobile.js"></script>
         <!-- Custom script -->
         <script src="js/menu.js"></script>
         <script src="js/init.js"></script>
@@ -33,7 +35,7 @@
                 <svg id="clockmain-svg-container" width="1024px" height="100%" viewBox="0 0 1024 1024"></svg>
             </div>
             <footer id="clockmain-copyright-section">
-                <div id="clockmain-copyright-button">-- about --</div>
+                <div id="clockmain-copyright-button">-</div>
                 <div id="clockmain-copyright-information">
                 Clock ! | by samuncle | follow me on twitter: @samuncle06 | Technology used
                 </div>
@@ -60,14 +62,42 @@
                     
                     <!-- All background options -->
                     <div class="clockmenu-section">    
-                        <div class="clockmenu-sections-title">Background</div>
+                        <div class="clockmenu-sections-title">Clock option</div>
                         <div id="menu-backgroundAnimation-btn" data-ref="menu-backgroundAnimation-ui" class="clockmenu-input">
                             <table><tr>
-                                <td>Enable noise</td> 
+                                <td>Enable fancy animations</td> 
                                 <td><div id="menu-backgroundAnimation-ui" class="ui-yesno-btn" data-value="yes"></div></td>
                             </tr></table>
                         </div>
                          <div class="clockmenu-input-divider"></div>
+                    </div>
+                    
+                    <div class="clockmenu-section-divider"></div>
+                    
+                    <!-- About -->
+                    <div class="clockmenu-section">    
+                        <div class="clockmenu-sections-title">About</div>
+                        <div class="clockmenu-input clockmenu-about">
+                            Source code avaliable <a href="https://github.com/samuncle/clock">on github</a>
+                            <br />-<br />
+                            Concept, Code and art <br /> by Jean-Manuel Clemençon (c) 2015 <br /> 
+                            <a href="http://samuncle.net/">My blog</a> | <a href="https://twitter.com/samuncle06/">My twitter</a>
+                        </div>
+                            
+                         <div class="clockmenu-input-divider"></div>
+                        <div class="clockmenu-input clockmenu-about">- Library used -<br /> 
+                            <a href="http://snapsvg.io/">snap.svg</a>,
+                            <a href="https://jquery.com/">jquery.js</a>,
+                            <a href="https://github.com/placemarker/jQuery-MD5">jQuery MD5</a>
+                            <br />- fonts used -<br />
+                            <a href="http://openfontlibrary.org/en/font/grupo3">grupo3</a>,
+                            <a href="http://terminus-font.sourceforge.net/">terminus</a>
+                        </div>
+                        
+                    </div>
+                        
+                        
+                        <!--
                         <div class="clockmenu-input">
                             <table class="clockmenu-input-slide"><tr>
                                 <td>opacity</td> 
@@ -84,6 +114,7 @@
                     <div class="clockmenu-section-divider"></div>
                     
                     <!-- All clock options -->
+                    <!--
                     <div class="clockmenu-section">    
                         <div class="clockmenu-sections-title">Clock</div>
                         <div class="clockmenu-input">Color</div>
@@ -100,7 +131,7 @@
                          <div class="clockmenu-input-divider"></div>
                     </div>
                     
-                    <!--
+                    
                     <div id="menu-test">
                         salut ? :)
                     </div>
