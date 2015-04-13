@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Clock !</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- External Library-->
+        <script src="js/jquery.js"></script>
+        <script src="js/jmd5.js"></script>
+        <script src="js/jqrcode.js"></script>
+        <script src="js/snap.js"></script>
+        <script src="js/JsBarcode.js"></script>
+        <script src="js/CODE128.js"></script>
+        <!-- Custom script -->
+        <script src="js/menu.js"></script>
+        <script src="js/init.js"></script>
+    </head>
+
+    <body>
+<audio id="audioDemo" controls preload="none">
+   <source src="assets/tick.ogg" type="audio/ogg">
+</audio>
+    
+        <!-- Background picture (noise effect)-->
+        <div id="clockbackground-pic">
+            <div id="clockbackground-randomtext">
+            </div>
+        </div>
+        
+        <!-- Main container (display the clock)width="100%" height="100%"-->
+        <div id="clockmain-content">
+            <div id="clockmain-screen">
+                <svg id="clockmain-svg-container" width="1024px" height="100%" viewBox="0 0 1024 1024"></svg>
+            </div>
+            <footer id="clockmain-copyright-section">
+                <div id="clockmain-copyright-button">-- about --</div>
+                <div id="clockmain-copyright-information">
+                Clock ! | by samuncle | follow me on twitter: @samuncle06 | Technology used
+                </div>
+            </footer>
+        </div>
+        
+        <div id="clocklens-content">
+            <div id="clocklens-lensflare">
+            </div>
+        </div>
+        
+        <!-- Menu container (display the various options) -->
+        <div id="clockmenu-content">
+            <header id="clockmenu-header">
+                <div id="clockmenu-title">
+                    About | Settings
+                </div>
+                <div id="clockmenu-access-button">
+                    ⚙
+                </div>
+            </header>
+            <div id="clockmenu-screen">
+                <div id="clockmenu-container">
+                    
+                    <!-- All background options -->
+                    <div class="clockmenu-section">    
+                        <div class="clockmenu-sections-title">Background</div>
+                        <div id="menu-backgroundAnimation-btn" data-ref="menu-backgroundAnimation-ui" class="clockmenu-input">
+                            <table><tr>
+                                <td>Enable noise</td> 
+                                <td><div id="menu-backgroundAnimation-ui" class="ui-yesno-btn" data-value="yes"></div></td>
+                            </tr></table>
+                        </div>
+                         <div class="clockmenu-input-divider"></div>
+                        <div class="clockmenu-input">
+                            <table class="clockmenu-input-slide"><tr>
+                                <td>opacity</td> 
+                                <td class="ui-btn-td">◀</td>
+                                <td class="ui-btn-td" data-value="yes">100%</td>
+                                <td class="ui-btn-td">▶</div></td>
+                            </tr></table>
+                        </div>
+                         <div class="clockmenu-input-divider"></div>
+                        <div class="clockmenu-input">Color</div>
+                    </div>
+                    
+                    
+                    <div class="clockmenu-section-divider"></div>
+                    
+                    <!-- All clock options -->
+                    <div class="clockmenu-section">    
+                        <div class="clockmenu-sections-title">Clock</div>
+                        <div class="clockmenu-input">Color</div>
+                         <div class="clockmenu-input-divider"></div>
+                        <div class="clockmenu-input">Color</div>
+                         <div class="clockmenu-input-divider"></div>
+                        <div class="clockmenu-input">Color</div>
+                         <div class="clockmenu-input-divider"></div>
+                        <div class="clockmenu-input">Color</div>
+                         <div class="clockmenu-input-divider"></div>
+                        <div class="clockmenu-input">Color</div>
+                         <div class="clockmenu-input-divider"></div>
+                        <div class="clockmenu-input">Color</div>
+                         <div class="clockmenu-input-divider"></div>
+                    </div>
+                    
+                    <!--
+                    <div id="menu-test">
+                        salut ? :)
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer (about/etc)-->
+        
+    </body>
+</html>
+
+

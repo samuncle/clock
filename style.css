@@ -1,0 +1,282 @@
+@font-face {
+    font-family: 'terminus'; /*a name to be used later*/
+    src: url('assets/modern-terminus.ttf'); /*URL to font*/
+}
+
+div {
+    cursor: default;
+}
+
+body {
+    background-color: #0e0e0e;
+
+    color: #fff;
+    font-family: terminus;
+    font-size: 20px;
+    width: 100%;
+    margin: auto;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor:default;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr{
+    height: 28px;
+}
+
+#clockmain-copyright-section {
+    text-align: center;
+}
+
+#clockmain-copyright-button{
+    background-color: #f00;
+}
+
+#clockbackground-pic {
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("assets/noise.gif");
+    background-size: 1024px 1024px;
+    width: 100%;
+    height: 100%;
+    opacity : 0.1;
+    z-index: -1;
+    word-wrap: break-word;
+}
+
+#clockbackground-randomtext {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+#clockmain-content {
+    position: relative;
+    /*background-color: rgba(0, 0, 0, 0.2);*/
+    padding:20px;
+    color: #0ccc68;
+}
+
+#clockmain-screen {
+    height: 100%;
+}
+
+#clockmain-svg-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* -------------------------------------------------------------------------------------------------
+   - Clock lens (vignette & lens flare effect)
+*/
+#clocklens-content{
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    background-image: -webkit-radial-gradient(center center, circle cover, rgba(0,0,0,0.0) 0%,
+                                                                           rgba(0,0,0,0.2) 50%,
+                                                                           rgba(0,0,0,0.7) 70%,
+                                                                           rgba(0,0,0,1.0) 90%,
+                                                                           rgba(0,0,0,1.0) 100%);
+    
+    background-image: -moz-radial-gradient(center center, circle cover, rgba(0,0,0,0.0) 0%,
+                                                                           rgba(0,0,0,0.2) 50%,
+                                                                           rgba(0,0,0,0.7) 70%,
+                                                                           rgba(0,0,0,1.0) 90%,
+                                                                           rgba(0,0,0,1.0) 100%);
+    
+    width: 100%;
+    height: 100%;
+    z-index: 80;
+}
+
+#clocklens-lensflare{
+    content : "";
+    background-image: -webkit-radial-gradient(center center, circle cover, rgba(255,149,0,0.3) 0%,
+                                                                           rgba(255,149,0,0.1) 50%,
+                                                                           rgba(255,149,0,0.0) 100%);
+
+    background-image: -moz-radial-gradient(center center, circle cover, rgba(255,149,0,0.3) 0%,
+                                                                           rgba(255,149,0,0.1) 50%,
+                                                                           rgba(255,149,0,0.0) 100%);
+    height:40px;
+}
+
+/* -------------------------------------------------------------------------------------------------
+   - Clock Menu
+*/
+#clockmenu-content {
+    display: block;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background-color: rgba(50, 50, 50, .7);
+    /*opacity : 0.1;*/
+    z-index: 100;
+    font-family: Sans;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-shadow: 0px 0px 10px #111;
+    
+}
+
+#clockmenu-header {
+    display: flex;
+}
+
+#clockmenu-access-button {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 40px;
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+#clockmenu-title {
+    background-color: #515151;
+    width: 350px;
+    height: 50px;
+    font-size: 25px;
+    padding-left: 15px;
+    flex-grow: 1;
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+#clockmenu-screen {
+    /*
+    border-top-style: solid;
+    border-top-width: 5px;
+    border-top-color: #3465a4;*/
+    height: 0px;
+    font-size: 15px;
+    padding: 10px;
+    padding-top: 15px;
+    overflow: scroll;
+    overflow-x: hidden;
+    color: #c6c6c6;
+}
+
+#clockmenu-container{
+    width: 370px;
+}
+
+#menu-test {
+    background-color: #0f0;
+    border-style: solid;
+    border-width: 10px;
+    border-radius: 100px;
+    height: 1000px;
+}
+
+.clockmenu-buttons-active {
+    background-color: #515151;
+}
+
+.clockmenu-buttons-default {
+    background-color: rgba(52, 101, 164, 0.5);
+}
+
+.clockmenu-buttons-default:hover {
+    background-color: rgba(52, 101, 164, 1.0);
+}
+
+.clockmenu-sections-title{
+    background-color: #2a4f74;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.clockmenu-input{
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #222;
+}
+.clockmenu-input:hover{
+    background-color: #111;
+}
+
+.clockmenu-input-divider{
+    height: 3px;
+    background-color: #4a4a4a;
+}
+
+.clockmenu-section-divider{
+    height: 20px;
+}
+
+.clockmenu-section{
+    margin-left: 5px;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: #222;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-right-color: #222;
+}
+
+.ui-generic-btn {
+    font-size: 25px;
+    border-width: 3px;
+    border-color: #8f8f8f;
+    border-style: solid;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: center;
+    float:right;
+    vertical-align: middle;
+    line-height: 20px;
+}
+
+.ui-yesno-btn {
+    height: 20px;
+    width: 20px;
+}
+
+.ui-yesno-btn-active {
+    height: 20px;
+    width: 20px;
+    background-color: #10405b;
+}
+
+.ui-btn-td{
+    width: 30px;
+    text-align: center;
+}
+
+.clockmenu-input-slide{
+    background-image: -webkit-linear-gradient(left,rgb(16,64,91) 0%, rgb(16,64,91) 50%,rgba(0,0,0,0) 50%,rgba(0,0,0,0) 100%);
+}
+
+
+
