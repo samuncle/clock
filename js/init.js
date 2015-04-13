@@ -6,6 +6,36 @@ function time_formatStr(number){
     return "" + number;
 }
 
+/**
+ * detect IE
+ * returns version of IE or false, if browser is not Internet Explorer
+ */
+function detectIE() {
+    var ua = window.navigator.userAgent;
+
+    var msie = ua.indexOf('MSIE ');
+    if (msie > 0) {
+        // IE 10 or older => return version number
+        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+    }
+
+    var trident = ua.indexOf('Trident/');
+    if (trident > 0) {
+        // IE 11 => return version number
+        var rv = ua.indexOf('rv:');
+        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+    }
+
+    var edge = ua.indexOf('Edge/');
+    if (edge > 0) {
+       // IE 12 => return version number
+       return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+    }
+
+    // other browser
+    return false;
+}
+
 function time_display(hh,mm,ss){
     $("#clock-display-hh").text(time_formatStr(hh));
     $("#clock-display-mm").text(time_formatStr(mm));
@@ -113,7 +143,8 @@ $(document).ready(function(){
             time_circle("#barcode-separator-f",s+h);
             time_circle("#barcode-separator-g",s+h+1);
             
-            if(g_config.is_fancyAnimation){
+            // Only enable rotation if user enabled it and not in IE (rotation doesn't work on IE);
+            if(g_config.is_fancyAnimation && !detectIE()){
                 time_rotate("#barcode-separator-g", s*6); 
                 time_rotate("#barcode-separator-f", -s+m*2);
                 time_rotate("#barcode-separator-d", s*3);
